@@ -64,7 +64,7 @@ class ImageClassificator:
              Tus objetivos son 
              1. Decirme todas las marcas que ves en un refrigerador. 
                 Para ellos se te poveeran de ejemplos 
-             2. Clasificar si eñ refrigerador está organizado, medianamente orgnizado o desorganizado.
+             2. Clasificar si el refrigerador está organizado, medianamente orgnizado o desorganizado basado en cómo están los productos organizados (lácteos hasta arriba y embutidos abajo)
                 Para ellos se te proveerán de imagenes de base para que puedas saber a qué se refiere cada clase.
                 Tipo de clasificación multiclase:
                 * Organizado
@@ -81,27 +81,27 @@ class ImageClassificator:
                     { "type": "image_url", "image_url": { "url": organizado_url } }
                 ]
             },
-            {
-                "role": "user",
-                "content": [
-                    { "type": "text", "text": "Este es un refrigerador medianamente ya que hay huecos entre productos sin llenar, aunque sí cumple en cuanto a la cercanía entre productos similares sin combinar de diferentes tipos."},
-                    { "type": "image_url", "image_url": { "url": intermedio_url } }
-                ]
-            },
-            {
-                "role": "user",
-                "content": [
-                    { "type": "text", "text": "Este es un refrigerador desorganizado ya que los productos están por todos lados, algunos acostados, otros parados y no es atractivo para los clientes. Además, algunas marcas se combinan entre ellas, agrupándose unas entre otras." },
-                    { "type": "image_url", "image_url": { "url": desorganizado_url } }
-                ]
-            },
-            {
-                "role": "user",
-                "content": [
-                    { "type": "text", "text": "En este refrigerador se pueden apreciar marcas como 'Hortex', 'Wisnie', 'Truskawki', 'Maliny'. El refrigerador está medianamente organizado ya que se tienen algunos producto como el de 'La villita´  están aplastado junto con los de Yoplait."},
-                    { "type": "image_url", "image_url": { "url": imagen_texto_DSCN_url } }
-                ]
-            },
+            # {
+            #     "role": "user",
+            #     "content": [
+            #         { "type": "text", "text": "Este es un refrigerador medianamente ya que hay huecos entre productos sin llenar, aunque sí cumple en cuanto a la cercanía entre productos similares sin combinar de diferentes tipos."},
+            #         { "type": "image_url", "image_url": { "url": intermedio_url } }
+            #     ]
+            # },
+            # {
+            #     "role": "user",
+            #     "content": [
+            #         { "type": "text", "text": "Este es un refrigerador desorganizado ya que los productos están por todos lados, algunos acostados, otros parados y no es atractivo para los clientes. Además, algunas marcas se combinan entre ellas, agrupándose unas entre otras." },
+            #         { "type": "image_url", "image_url": { "url": desorganizado_url } }
+            #     ]
+            # },
+            # {
+            #     "role": "user",
+            #     "content": [
+            #         { "type": "text", "text": "En este refrigerador se pueden apreciar marcas como 'Hortex', 'Wisnie', 'Truskawki', 'Maliny'. El refrigerador está medianamente organizado ya que se tienen algunos producto como el de 'La villita´  están aplastado junto con los de Yoplait."},
+            #         { "type": "image_url", "image_url": { "url": imagen_texto_DSCN_url } }
+            #     ]
+            # },
             {
                 "role": "user",
                 "content": [
@@ -112,7 +112,7 @@ class ImageClassificator:
             {
                 "role": "user",
                 "content": [
-                    { "type": "text", "text": "En este refrigerador se pueden apreciar marcas como 'Yoplait', 'Fud', 'Olé', 'Queso Philadelphia'. Este refrigerador está bien organizado ya que tienen todos los productos bien ordenados y por secciones."},
+                    { "type": "text", "text": "En este refrigerador se pueden apreciar marcas como 'Yoplait', 'Fud', 'Olé', 'Queso Philadelphia'. Este refrigerador está mal organizado ya que los lácteos están por todas partes y las embutidos en medio."},
                     { "type": "image_url", "image_url": { "url": imagen_texto_4_url } }
                 ]
             },
@@ -137,6 +137,32 @@ class ImageClassificator:
                     **Recomendación**: (Proporciona una recomendación específica y detallada para mejorar la organización, enfocándote en un entorno de supermercado. Usa nombres, colores, marcas, estilos o cualquier detalle relevante. Sé breve pero útil, y evita información innecesaria. Por ejemplo:  
                     - "Noto que las botellas de Coca-Cola están mezcladas con otras marcas. Sugiero agrupar todas las botellas de Coca-Cola juntas, alineadas en la parte superior del estante, mientras que las botellas de Pepsi podrían estar en la fila inferior para diferenciarlas claramente por marca."  
                     - "Veo bolsas de frutos rojos mezcladas con bolsas de verduras verdes. Recomiendo colocar las bolsas de frutos rojos —como las que tienen etiquetas rojas— en el lado izquierdo del estante, y las bolsas de verduras en el lado derecho para separar las categorías."  
+                     
+ 
+                   IMPORTANTE: considera que un refrigerador debe de estar ordenado asi:
+                    
+                    En un refrigerador de tienda, la organización debe enfocarse en la exhibición atractiva, funcionalidad y facilidad de acceso para los clientes, cumpliendo además con normativas de seguridad alimentaria.
+
+                    1. Orden por Categoría:
+                    • Lácteos (leche, quesos, cremas, yogures): Parte superior o media del refrigerador, donde la temperatura es más estable.
+                    • Embutidos y carnes frías (jamón, salchichas, chorizos, tocino): Cajones inferiores o zonas específicas para carnes frías, sellados para evitar derrames.
+                    • Otros productos empacados de Sigma Alimentos (salsas, dips, etc.): Parte media o lateral del refrigerador, asegurando visibilidad y accesibilidad.
+                    2. Orden por Fecha de Caducidad:
+                    • Colocar los productos con fechas de caducidad más próximas al frente.
+                    • Los productos más frescos deben ubicarse al fondo.
+                    3. Temperatura Ideal:
+                    • Embutidos y quesos blandos deben estar en las zonas de frío controlado (parte inferior o media).
+                    • Lácteos (leche y yogures) deben mantenerse en la parte media o superior, donde la temperatura sea constante.
+                    4. Prevención de Contaminación Cruzada:
+                    • Asegurar que los productos estén sellados y no entren en contacto con otros alimentos crudos o abiertos.
+                    • Los productos de Sigma Alimentos deben mantenerse separados de alimentos que no pertenecen a la misma categoría (e.g., productos crudos o de otras marcas).
+                    5. Accesibilidad:
+                    • Los productos más utilizados deben estar al frente o a la altura de los ojos para facilitar su acceso.
+                    
+                     
+                    Por lo tanto, dí cómo deben de estar organizados los productos que ves con base en esa información de manera explícita. Menciona el porqué deben de estar en una sección u otra.
+                     
+                     NO menciones nada del estante, siempre menciona sobre el refrigerador.
 
                     Si todo está bien organizado, en **Recomendación** escribe: 'No hay recomendación, ¡todo está perfecto!'
 
